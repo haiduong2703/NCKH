@@ -179,11 +179,10 @@
 							<div class="row mb-3">
 							  <label for="inputInfor" class="col-sm-2 col-form-label">Thông tin</label>
 							  <div class="col-sm-10">
-								<input type="text" class="form-control" id="inputInfor" disabled placeholder="Đoàn Văn A, 0867687695, Việt Tiến- Việt Yên- Bắc Giang,">
+								<input type="text" class="form-control" id="inputInfor" onload="getInforSender()">
 							  </div>
 							</div>
 						  </form><!-- End sender -->
-
 						</div>
 					</div>
 						<!--Receiver-->
@@ -200,12 +199,12 @@
 							</div>
 							<div class="col-md-12">
 							  <label for="inputPhone" class="form-label">Điện thoại</label>
-							  <input type="text" class="form-control" id="inputPhone" placeholder="0867687695" onkeyup="checkPhone()" disabled>
+							  <input type="text" class="form-control" id="inputPhone" placeholder="0867687695" onkeyup="checkPhone()">
 							  <div id="errPhone"></div>
 							</div>
 							<div class="col-12">
 							  <label for="inputAddress" class="form-label">Địa chỉ</label>
-							  <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" onkeyup="checkAddress()" disabled>
+							  <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" onkeyup="checkAddress()">
 							  <div id="errAddress"></div>
 							</div>
 						  </form><!-- End Receiver Form -->
@@ -234,23 +233,27 @@
 						  <form class="row g-3" id="commodity-info">
 							<div class="col-12">
 							  <label for="inputIdBill" class="form-label">Mã đơn hàng</label>
-							  <input type="text" class="form-control" id="inputIdBill" placeholder="DH01" disabled>
+							  <input type="text" class="form-control" id="inputIdBill" placeholder="DH01" disabled >
 							</div>
 							<div class="col-12">
 							  <label for="inputProductName" class="form-label">Tên hàng</label>
-							  <input type="text" class="form-control" id="inputProductName" placeholder="Giày thể thao nam nữ" disabled>
+							  <input type="text" class="form-control" id="inputProductName" placeholder="Giày thể thao nam nữ" onkeyup="checkProductName()">
+							  <div id="errProductName"></div>
 							</div>
 							<div class="col-12">
 							  <label for="inputTotal" class="form-label">Số lượng</label>
-							  <input type="text" class="form-control" id="inputTotal" placeholder="1" disabled>
+							  <input type="text" class="form-control" id="inputTotal" placeholder="1" onkeyup="checkTotal()">
+							  <div id="errTotal"></div>
 							</div>
 							<div class="col-12">
-							  <label for="inputWeight" class="form-label">Trọng lượng</label>
-							  <input type="text" class="form-control" id="inputWeight" placeholder="1000 gram" disabled>
+							  <label for="inputWeight" class="form-label">Trọng lượng (gram)</label>
+							  <input type="text" class="form-control" id="inputWeight" placeholder="1000 gram" onkeyup="checkWeight();calculatePrice();">
+							  <div id="errWeight"></div>
 							</div>
 							<div class="col-12">
-							  <label for="inputPrice" class="form-label">Giá trị</label>
-							  <input type="text" class="form-control" id="inputPrice" placeholder="100.000 VNĐ" disabled>
+							  <label for="inputPrice" class="form-label">Giá trị (VNĐ)</label>
+							  <input type="text" class="form-control" id="inputPrice" placeholder="100.000 VNĐ" onkeyup="checkPrice();calculatePrice();">
+							  <div id="errPrice"></div>
 							</div>
 						  </form><!-- Commodity Information Form -->
 
@@ -264,7 +267,7 @@
 							<div class="col-md-6">
 								<h5 class="card-title">Yêu cầu khi giao hàng</h5>
 								<div class="">
-									<input type="radio" class="form-check-input" id="forCustomerSee" name="requirment1">
+									<input type="radio" class="form-check-input" id="forCustomerSee" name="requirment1" checked>
 									<label for="forCustomerSee" class="form-label">Cho khách hàng xem</label>
 								</div>
 								<div class="">
@@ -275,7 +278,7 @@
 							<div class="col-md-6">
 								<h5 class="card-title">Yêu cầu lấy hàng</h5>
 								<div class="">
-									<input type="radio" class="form-check-input" id="getAtHome" name="requirment2">
+									<input type="radio" class="form-check-input" id="getAtHome" name="requirment2" checked>
 									<label for="getAtHome" class="form-label">Đến nhà lấy</label>
 								</div>
 								<div class="">
@@ -291,34 +294,34 @@
 			</div>
 			<div class="row">
 				<div class="col-md-2 border-end border-secondary">
-					<div class="total-price text-center">
+					<div class="text-center">
 						<span>Tổng cước</span>
 					</div>
-					<div class="price-valid text-center">100.000 VNĐ</div>
+					<div class="text-center" id="price-valid-1"></div>
 				</div>
 				<div class="col-md-2 border-end border-secondary">
-					<div class="total-price text-center">
+					<div class="text-center">
 						<span>Tiền trả người gửi</span>
 					</div>
-					<div class="price-valid text-center">100.000.VNĐ</div>
+					<div class="text-center" id="price-valid-2"></div>
 					</div>
 				<div class="col-md-2 border-end border-secondary">
-					<div class="total-price text-center">
+					<div class="text-center">
 						<span>Tiền thu hộ</span>
 					</div>
-					<div class="price-valid text-center">50.000 VNĐ</div>
+					<div class="text-center" id="price-valid-3"></div>
 				</div>
 				<div class="col-md-2">
-					<div class="total-price text-center">
+					<div class="text-center">
 						<span>Thời gian giao dự kiến</span>
 					</div>
-					<div class="price-valid text-center">12-02-2023</div>
+					<div class="text-center" id="time-valid">12-02-2023</div>
 				</div>
 				<div class="col-md-2 text-center">
 					<button type="submit" class="btn btn-primary align-items-center">Gửi ngay</button>
 				</div>
 				<div class="col-md-2 text-center">
-					<button type="reset" class="btn btn-primary align-items-center">Làm mới</button>
+					<button type="button" class="btn btn-primary align-items-center" onclick="resetForm()">Làm mới</button>
 				</div>
 			</div>
 		</section>
