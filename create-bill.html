@@ -11,7 +11,7 @@
 	<!--My style-->
     <link href="assets/css/main.css" rel="stylesheet" type="text/css"/>
 
-	<script language="javascript" src="main.js"></script>
+	<script language="javascript" src="assets/js/main.js"></script>
   </head>
   <body >
 			<!-- ======= Header ======= -->
@@ -195,15 +195,18 @@
 						  <form class="row g-3" id ="receiver">
 							<div class="col-md-12">
 							  <label for="inputFullname" class="form-label">Họ tên</label>
-							  <input type="text" class="form-control" id="inputFullname" placeholder="Nguyễn Văn A">
+							  <input type="text" class="form-control" id="inputFullname" placeholder="Nguyễn Văn A" onkeyup="checkFullname()">
+							  <div id="errFullname"></div>
 							</div>
 							<div class="col-md-12">
 							  <label for="inputPhone" class="form-label">Điện thoại</label>
-							  <input type="text" class="form-control" id="inputPhone" placeholder="0867687695">
+							  <input type="text" class="form-control" id="inputPhone" placeholder="0867687695" onkeyup="checkPhone()" disabled>
+							  <div id="errPhone"></div>
 							</div>
 							<div class="col-12">
 							  <label for="inputAddress" class="form-label">Địa chỉ</label>
-							  <input type="text" class="form-control" id="inputAddres" placeholder="1234 Main St">
+							  <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" onkeyup="checkAddress()" disabled>
+							  <div id="errAddress"></div>
 							</div>
 						  </form><!-- End Receiver Form -->
 
@@ -235,19 +238,19 @@
 							</div>
 							<div class="col-12">
 							  <label for="inputProductName" class="form-label">Tên hàng</label>
-							  <input type="text" class="form-control" id="inputProductName" placeholder="Giày thể thao nam nữ">
+							  <input type="text" class="form-control" id="inputProductName" placeholder="Giày thể thao nam nữ" disabled>
 							</div>
 							<div class="col-12">
 							  <label for="inputTotal" class="form-label">Số lượng</label>
-							  <input type="text" class="form-control" id="inputTotal" placeholder="1">
+							  <input type="text" class="form-control" id="inputTotal" placeholder="1" disabled>
 							</div>
 							<div class="col-12">
 							  <label for="inputWeight" class="form-label">Trọng lượng</label>
-							  <input type="text" class="form-control" id="inputWeight" placeholder="1000 gram">
+							  <input type="text" class="form-control" id="inputWeight" placeholder="1000 gram" disabled>
 							</div>
 							<div class="col-12">
 							  <label for="inputPrice" class="form-label">Giá trị</label>
-							  <input type="text" class="form-control" id="inputPrice" placeholder="100.000 VNĐ">
+							  <input type="text" class="form-control" id="inputPrice" placeholder="100.000 VNĐ" disabled>
 							</div>
 						  </form><!-- Commodity Information Form -->
 
