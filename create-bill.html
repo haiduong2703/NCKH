@@ -179,7 +179,7 @@
 							<div class="row mb-3">
 							  <label for="inputInfor" class="col-sm-2 col-form-label">Thông tin</label>
 							  <div class="col-sm-10">
-								<input type="text" class="form-control" id="inputInfor" onload="getInforSender()">
+								<input type="text" class="form-control" id="inputInfor" placeholder="Đoàn Văn Quân, 0867687695, Việt Tiến- Việt Yên - Bắc Giang">
 							  </div>
 							</div>
 						  </form><!-- End sender -->
@@ -252,7 +252,7 @@
 							</div>
 							<div class="col-12">
 							  <label for="inputPrice" class="form-label">Giá trị (VNĐ)</label>
-							  <input type="text" class="form-control" id="inputPrice" placeholder="100.000 VNĐ" onkeyup="checkPrice();calculatePrice();">
+							  <input type="text" class="form-control" id="inputPrice" placeholder="100.000 VNĐ" onkeyup="checkPrice();calculatePrice();sendNow();">
 							  <div id="errPrice"></div>
 							</div>
 						  </form><!-- Commodity Information Form -->
@@ -318,7 +318,7 @@
 					<div class="text-center" id="time-valid">12-02-2023</div>
 				</div>
 				<div class="col-md-2 text-center">
-					<button type="submit" class="btn btn-primary align-items-center">Gửi ngay</button>
+					<button type="submit" class="btn btn-primary align-items-center" id="send-now" name="send-now" disabled>Gửi ngay</button>
 				</div>
 				<div class="col-md-2 text-center">
 					<button type="button" class="btn btn-primary align-items-center" onclick="resetForm()">Làm mới</button>

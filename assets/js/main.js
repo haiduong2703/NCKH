@@ -315,3 +315,18 @@ function passData() {
 	}, '*');
 
 }
+const sendNow = ()=>{
+	if(checkFullname()&&checkPhone()&&checkAddress()&&checkProductName()&&checkTotal()&&checkWeight()&&checkPrice()){
+		document.getElementById("send-now").disabled = false;
+	}
+	else{
+		document.getElementById("send-now").disabled = false;
+		if(!checkFullname()) document.getElementById("inputFullname").focus();
+		if(!checkPhone()) document.getElementById("inputPhone").focus();
+		if(!checkAddress()) document.getElementById("inputAddress").focus();
+		if(!checkProductName()) document.getElementById("inputProductName").focus();
+		if(!checkTotal()) document.getElementById("inputTotal").focus();
+		if(!checkWeight()) document.getElementById("inputWeight").focus();
+		if(!checkPrice()) document.getElementById("inputPrice").focus();
+	}
+}
