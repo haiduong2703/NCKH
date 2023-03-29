@@ -376,5 +376,4 @@ const checkEmail = () =>{
 	return validEmail;
 }
 
-
 //--------------------------------------------end user-profile.html----------------------------
