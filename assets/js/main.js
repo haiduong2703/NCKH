@@ -1,5 +1,5 @@
 ﻿// các xử lý định dạng cho website 
-
+//-----------------------------------------create-bill.html---------------------------------------------
 // kiểm tra họ và tên nhập vào có hợp lệ không
 const checkFullname = () =>{
 	// lấy thông tin ô nhập họ tên, số điện thoại, địa chỉ
@@ -315,6 +315,7 @@ function passData() {
 	}, '*');
 
 }
+
 const sendNow = ()=>{
 	if(checkFullname()&&checkPhone()&&checkAddress()&&checkProductName()&&checkTotal()&&checkWeight()&&checkPrice()){
 		document.getElementById("send-now").disabled = false;
@@ -330,3 +331,50 @@ const sendNow = ()=>{
 		if(!checkPrice()) document.getElementById("inputPrice").focus();
 	}
 }
+//---------------------------------end page create-bill.html-------------------------------------------
+
+
+
+//-----------------------------------------------user-profile.html-----------------------------
+
+
+
+
+const checkEmail = () =>{
+	let email = document.getElementById("user-profile").email.value;
+	let viewEmail = document.getElementById("user-profile").email;
+	let errEmail = document.getElementById("errEmail");
+	let validEmail = true;
+	let message = ""; 
+	if(email==""){
+		validEmail = false;
+		message = "Không được để trống email";
+	}
+	else{
+		if(email.indexOf("@")==-1){
+			validEmail = false;
+			message = "Bạn nhập không phải là email";
+		}
+		else{
+			var pattern = /\w+@\w+[.]\w/;
+			if(!pattern.test(email)){
+				validEmail = false;
+				message ="Không đúng cấu trúc hộp thư";
+			}
+			
+		}
+	}
+	errEmail.style.color = "green";
+	errEmail.style.paddingTop = "5px";
+	if(validEmail){
+		errEmail.innerHTML = '<i class="fa-regular fa-circle-check"></i>'
+	}
+	else{
+		errEmail.innerHTML = message;
+		errEmail.style.color = "red";
+	}
+	return validEmail;
+}
+
+
+//--------------------------------------------end user-profile.html----------------------------
