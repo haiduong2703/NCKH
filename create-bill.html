@@ -193,17 +193,17 @@
 						  <form class="row g-3" id ="receiver">
 							<div class="col-md-12">
 							  <label for="inputFullname" class="form-label">Họ tên</label>
-							  <input type="text" class="form-control" id="inputFullname" placeholder="Nguyễn Văn A" onkeyup="checkFullname()">
+							  <input type="text" class="form-control" id="inputFullname" placeholder="Nguyễn Văn A" onkeyup="checkFullname(document.getElementById('inputFullname'),document.getElementById('errFullname'))">
 							  <div id="errFullname"></div>
 							</div>
 							<div class="col-md-12">
 							  <label for="inputPhone" class="form-label">Điện thoại</label>
-							  <input type="text" class="form-control" id="inputPhone" placeholder="0867687695" onkeyup="checkPhone()">
+							  <input type="text" class="form-control" id="inputPhone" placeholder="0867687695" onkeyup="checkPhone(document.getElementById('inputPhone'),document.getElementById('errPhone'))">
 							  <div id="errPhone"></div>
 							</div>
 							<div class="col-12">
 							  <label for="inputAddress" class="form-label">Địa chỉ</label>
-							  <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" onkeyup="checkAddress()">
+							  <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" onkeyup="checkAddress(document.getElementById('inputAddress'),document.getElementById('errAddress'))">
 							  <div id="errAddress"></div>
 							</div>
 						  </form><!-- End Receiver Form -->

@@ -1,18 +1,18 @@
 ﻿// các xử lý định dạng cho website 
 //-----------------------------------------create-bill.html---------------------------------------------
 // kiểm tra họ và tên nhập vào có hợp lệ không
-const checkFullname = () =>{
+const checkFullname = (fn,err) =>{
 	// lấy thông tin ô nhập họ tên, số điện thoại, địa chỉ
-	let fullname = document.getElementById("inputFullname").value;
+	let fullname = fn.value;
 	
 	
 	// tham chiếu đối tượng lỗi
-	let viewFullname = document.getElementById("inputFullname");
+	let viewFullname = fn;
 	
 
 	
 	// tham chiếu vị trí báo lỗi
-	let errFullname = document.getElementById("errFullname");
+	let errFullname = err;
 	
 	
 	
@@ -20,6 +20,7 @@ const checkFullname = () =>{
 	let validFullname = true;
 	
 	errFullname.style.paddingTop = "5px";
+	errFullname.style.fontSize = "12px";
 	// biến thông báo lỗi
 	let message ="";
 	if(fullname == ""){
@@ -51,14 +52,15 @@ const checkFullname = () =>{
 }
 
 // kiểm tra số điện thoại nhập vào có hợp lệ không
-const checkPhone = () => {
+const checkPhone = (_phone,err) => {
 	
-	let phone = document.getElementById("inputPhone").value;
-	let viewPhone = document.getElementById("inputPhone");
-	let errPhone = document.getElementById("errPhone");
+	let phone = _phone.value;
+	let viewPhone = _phone;
+	let errPhone = err;
 	let validPhone = true;
 	let message ="";
 	errPhone.style.paddingTop = "5px";
+	errPhone.style.fontSize = "12px";
 	if(phone==""){
 		validPhone = false;
 		message="Không được để trống mục số điện thoại!";
@@ -91,14 +93,15 @@ const checkPhone = () => {
 }
 
 // kiểm tra dữ liệu địa chỉ nhập vào có hợp lệ không
-const checkAddress = () =>{
+const checkAddress = (_address,err) =>{
 	
-	let address = document.getElementById("inputAddress").value;
-	let viewAddress = document.getElementById("inputAddress");
-	let errAddress = document.getElementById("errAddress");
+	let address = _address.value;
+	let viewAddress = _address;
+	let errAddress = err;
 	let validAddress = true;
 	let message ="";
 	errAddress.style.paddingTop="5px";
+	errAddress.style.fontSize="12px";
 	if(address==""){
 		validAddress = false;
 		message ="Không được để trống mục địa chỉ!";
@@ -134,6 +137,8 @@ const checkProductName = () => {
 	let message="";
 	//kiểm tra điều kiện
 	errProductName.style.paddingTop = "5px";
+	errProductName.style.color = "green";
+	errProductName.style.fontSize = "12px";
 	if(productName == ""){
 		validProductName = false;
 		message="Không được để trống mục tên hàng!";
@@ -185,6 +190,7 @@ const checkTotal = () => {
 			}
 		}
 	}
+	errTotal.style.fontSize = "12px";
 	if(validTotal){
 		errTotal.innerHTML = '<i class="fa-regular fa-circle-check"></i>';
 		errTotal.style.color = "green";
@@ -204,6 +210,7 @@ const checkWeight = ()=>{
 	let message = "";
 	errWeight.style.paddingTop = "5px";
 	errWeight.style.color = "green";
+	errWeight.style.fontSize = "12px";
 	if(weight==""){
 		validWeight = false;
 		message = "Không được để trống mục trọng lượng!";
@@ -238,6 +245,7 @@ const checkPrice = ()=>{
 	let message = "";
 	errPrice.style.paddingTop = "5px";
 	errPrice.style.color = "green";
+	errPrice.style.fontSize = "12px";
 	if(price==""){
 		validPrice = false;
 		message = "Không được để trống mục giá tiền!";
@@ -366,6 +374,7 @@ const checkEmail = () =>{
 	}
 	errEmail.style.color = "green";
 	errEmail.style.paddingTop = "5px";
+	errEmail.style.fontSize = "12px";
 	if(validEmail){
 		errEmail.innerHTML = '<i class="fa-regular fa-circle-check"></i>'
 	}
@@ -376,4 +385,48 @@ const checkEmail = () =>{
 	return validEmail;
 }
 
+const checkIdPerson = () => {
+	let id = document.getElementById('id-person').value;
+	let viewId = document.getElementById('id-person');
+	let errId = document.getElementById('errIdPerson');
+	let validId=true;
+	let message = "";
+	if(id==""){
+		validId = false;
+		message = "Không được để trống mục chứng minh thư";
+	}
+	else{
+		if(id.length<10){
+			validId=false;
+			message = "Chứng minh thư không được nhỏ hơn 10 số";
+		}
+		else{
+			var pattern1 = /[a-z]/
+			var pattern2 = /[~`!@#$%^&*()_+=[]-*/;
+			var pattern3 = /[A-Z]/;
+			if(pattern1.test(id) || pattern2.test(id) || pattern3.test(id)){
+				validId=false;
+				message = "Chứng minh thư không được chứa ký tự hoặc ký tự đặc biệt!";
+			}
+			else{
+				if(id%1!=0){
+					validId = false;
+					message = "Chứng minh thư không thể chứ số thập phân";
+				}
+			}
+		}
+	}
+	errId.style.color = "green";
+	errId.style.fontSize = "12px";
+	errId.style.paddingTop = "5px";
+	if(validId){
+		errId.innerHTML = '<i class="fa-regular fa-circle-check"></i>';
+	}
+	else{
+		
+		errId.style.color = "red";
+		errId.innerHTML = message;
+	}
+	return validId;
+}
 //--------------------------------------------end user-profile.html----------------------------
