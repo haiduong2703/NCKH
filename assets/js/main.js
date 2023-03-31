@@ -325,14 +325,22 @@ function passData() {
 }
 
 const sendNow = ()=>{
-	if(checkFullname()&&checkPhone()&&checkAddress()&&checkProductName()&&checkTotal()&&checkWeight()&&checkPrice()){
+	let fn = document.getElementById('inputFullname');
+	let errFn = document.getElementById('errFullname');
+	let phone = document.getElementById('inputPhone');
+	let errPhone = document.getElementById('errPhone');
+	let address = document.getElementById('inputAddress');
+	let errAddress = document.getElementById('errAddress');
+	//let errFn = document.getElementById('errFullname');
+	
+	if(checkFullname(fn,errFn)&&checkPhone(phone,errPhone)&&checkAddress(address,errAddress)&&checkProductName()&&checkTotal()&&checkWeight()&&checkPrice()){
 		document.getElementById("send-now").disabled = false;
 	}
 	else{
 		document.getElementById("send-now").disabled = false;
-		if(!checkFullname()) document.getElementById("inputFullname").focus();
-		if(!checkPhone()) document.getElementById("inputPhone").focus();
-		if(!checkAddress()) document.getElementById("inputAddress").focus();
+		if(!checkFullname(fn,errFn)) document.getElementById("inputFullname").focus();
+		if(!checkPhone(phone,errPhone)) document.getElementById("inputPhone").focus();
+		if(!checkAddress(address,errAddress)) document.getElementById("inputAddress").focus();
 		if(!checkProductName()) document.getElementById("inputProductName").focus();
 		if(!checkTotal()) document.getElementById("inputTotal").focus();
 		if(!checkWeight()) document.getElementById("inputWeight").focus();
