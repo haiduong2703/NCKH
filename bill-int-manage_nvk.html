@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quản lý phiếu nhập</title>
+	<!--My icon-->
+	<link href="assets/vendor/fontawesome/css/all.min.css" rel="stylesheet"/>
+    <!--My vendor-->
+	<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+	<!--My style-->
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css"/>
+
+	<script language="javascript" src="main.js"></script>
+  </head>
+  <body >
+			<!-- ======= Header ======= -->
+	<header id="header" class="header fixed-top d-flex align-items-center">
+
+		<div class="d-flex align-items-center justify-content-between">
+		  <a href="index_nvk.html" class="logo d-flex align-items-center">
+			
+			<span class="d-none d-lg-block">Mien Bac Transport</span>
+		  </a>
+		  <i class="fa-solid fa-bars toggle-sidebar-btn"></i>
+		</div><!-- End Logo -->
+
+		<div class="search-bar">
+		  <form class="search-form d-flex align-items-center" method="POST" action="#">
+			<input type="text" name="query" placeholder="Search" title="Enter search keyword">
+			<button type="submit" title="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+		  </form>
+		</div><!-- End Search Bar -->
+
+		<nav class="header-nav ms-auto">
+		  <ul class="d-flex align-items-center">
+
+			<li class="nav-item d-block d-lg-none">
+			  <a class="nav-link nav-icon search-bar-toggle " href="#">
+				<i class="fa-solid fa-magnifying-glass"></i>
+			  </a>
+			</li><!-- End Search Icon-->
+
+			
+
+			<li class="nav-item dropdown pe-3">
+
+			  <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+				<img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+				<span class="d-none d-md-block dropdown-toggle ps-2">Đoàn Văn Quân</span>
+			  </a><!-- End Profile Iamge Icon -->
+
+			  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+				<li class="dropdown-header">
+				  <h6>Đoàn Văn Quân</h6>
+				</li>
+				<li>
+				  <hr class="dropdown-divider">
+				</li>
+
+				<li>
+				  <a class="dropdown-item d-flex align-items-center" href="user-profile_nvk.html">
+					<i class="fa-regular fa-user"></i>
+					<span>Thông tin cá nhân</span>
+				  </a>
+				</li>
+				<li>
+				  <hr class="dropdown-divider">
+				</li>
+
+				<li>
+				  <a class="dropdown-item d-flex align-items-center" href="change-password_nvk.html">
+					<i class="fa-solid fa-gear"></i>
+					<span>Đổi mật khẩu</span>
+				  </a>
+				</li>
+				<li>
+				  <hr class="dropdown-divider">
+				</li>
+
+				<li>
+				  <hr class="dropdown-divider">
+				</li>
+
+				<li>
+				  <a class="dropdown-item d-flex align-items-center" href="#">
+					<i class="fa-solid fa-right-to-bracket"></i>
+					<span>Đăng xuất</span>
+				  </a>
+				</li>
+
+			  </ul><!-- End Profile Dropdown Items -->
+			</li><!-- End Profile Nav -->
+
+		  </ul>
+		</nav><!-- End Icons Navigation -->
+
+	</header><!-- End Header -->
+	<aside id="sidebar" class="sidebar">
+
+		<ul class="sidebar-nav" id="sidebar-nav">
+
+			<li class="nav-item">
+				<a class="nav-link" href="index_nvk.html">
+				  <i class="fa-solid fa-house"></i>
+				  Trang chủ
+				</a>
+			</li><!-- End Dashboard Nav -->
+
+			<li class="nav-item">
+				<a class="nav-link" href="create-bill_nvk.html">
+				  <i class="fa-solid fa-box-archive"></i><span>Tạo Đơn</span>
+				</a>
+			</li><!-- End Components Nav -->
+
+			<!-- <li class="nav-item">
+				<a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+				  <i class="fa-solid fa-magnifying-glass-location"></i><span>Tra Cứu</span><i class="fa-solid fa-angle-down ms-auto"></i>
+				</a>
+				<ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+				  <li>
+					<a href="search-bill.html" class="">
+					  <i class="bi bi-circle"></i><span>Tra cứu vận đơn</span>
+					</a>
+				  </li>
+				  <li>
+					<a href="cost-estimate.html">
+					  <i class="bi bi-circle"></i><span>Ứơc tính chi phí</span>
+					</a>
+				  </li>
+				  <li>
+					<a href="search-post-office.html">
+					  <i class="bi bi-circle"></i><span>Tìm kiếm bưu cục</span>
+					</a>
+				  </li>
+				</ul>
+			</li>End Forms Nav -->
+			<li class="nav-item">
+				<a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+					<i class="fa-solid fa-calendar-days"></i><span>Quản Lý</span><i class="fa-solid fa-angle-down ms-auto"></i>
+				</a>
+				<ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+				  <li>
+					<a href="bill-int-manage_nvk.html">
+						<i class="fa-solid fa-book"></i><span>Quản lý phiếu nhập</span>
+					</a>
+				  </li>
+				  <li>
+					<a href="bill-out-manage_nvk.html">
+						<i class="fa-solid fa-book"></i><span>Quản lý phiếu xuất</span>
+					</a>
+				  </li>
+				</ul>
+			  </li><!-- End Charts Nav -->
+			<li class="nav-item">
+				<a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+				  <i class="fa-solid fa-gear"></i><span>Cài đặt tài khoản</span><i class="fa-solid fa-angle-down ms-auto"></i>
+				</a>
+				<ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+				  <li>
+					<a href="user-profile_nvk.html">
+					  <span>Thông tin tài khoản</span>
+					</a>
+				  </li>
+				  <li>
+					<a href="change-password_nvk.html">
+					  <span>Đổi mật khẩu</span>
+					</a>
+				  </li>
+				</ul>
+			</li><!-- End Tables Nav -->
+		</ul>
+
+	</aside><!-- End Sidebar-->
+	<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Quản lý</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index_nvk.html">Home</a></li>
+          <li class="breadcrumb-item">Quản lý</li>
+          <li class="breadcrumb-item active">Quản lý phiếu nhập</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+      <form action="" method="post">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Phiếu nhập</h5>
+                <!-- Vertical Form -->
+                <div class="row g-3">
+                  <div class="col-12">
+                    <label for="billCode4" class="form-label">Mã phiếu</label>
+                    <input type="text" class="form-control" id="billCode">
+                  </div>
+                  <div class="col-12">
+                    <label for="billProduct4" class="form-label">Mã đơn hàng</label>
+                    <input type="text" class="form-control" id="billProduct">
+                  </div>
+                  <div class="col-12">
+                    <label for="nameWarehouse4" class="form-label">Tên kho</label>
+                    <input type="text" class="form-control" id="nameWarehouse">
+                  </div>
+                  <div class="btn-add-bill">
+                    <button type="submit" class="btn btn-primary">Thêm</button>
+                    <button type="reset" class="btn btn-secondary">Xóa</button>
+                  </div>
+                </div><!-- Vertical Form -->
+  
+              </div>
+            </div>
+  
+            
+          </div>
+  
+          <div class="col-lg-6">
+  
+            <div class="card">
+              <div class="card-body" style="padding-bottom: 73px;">
+                <h5 class="card-title">...</h5>
+  
+                <!-- Vertical Form -->
+                <div class="row g-3">
+                  <div class="col-12">
+                    <label for="nameProduct4" class="form-label">Tên hàng</label>
+                    <input type="text" class="form-control" id="nameProduct">
+                  </div>
+                  <div class="col-12">
+                    <label for="dateWarehouse4" class="form-label">Ngày nhập kho</label>
+                    <input type="date" class="form-control" id="dateWarehouse">
+                  </div>
+                  <div class="col-12">
+                    <label for="status4" class="form-label">Trạng thái</label>
+                    <input type="text" class="form-control" id="status">
+                  </div>
+                 
+                </div><!-- Vertical Form -->
+  
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </form>
+    </section>
+    <section>
+      <h5 class="card-title" style="text-align: center;font-weight: bold;font-size: 25px;">Danh sách phiếu nhập</h5>
+      <form action="" method="post" style="display: flex; margin: 10px 0px; justify-content: right;">
+        <div class="input-bill-search">
+          <input type="text" name="inputBillSearch" id="" placeholder="Tìm kiếm phiếu nhập">
+        </div>
+        <button type="submit">Search</button>
+      </form>
+      <table class="table table-bordered border-primary">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Mã Phiếu</th>
+            <th scope="col">Mã đơn hàng</th>
+            <th scope="col">Tên kho</th>
+            <th scope="col">Tên hàng</th>
+            <th scope="col">Ngày nhập kho</th>
+            <th scope="col">Trạng thái</th>
+            <th scope="col">Tác vụ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>PH01</td>
+            <td>Kho1</td>
+            <td>Nguyễn Văn A</td>
+            <td>Ô tô</td>
+            <td>12-05-2002</td>
+            <td></td>
+            <td><button type="button" style="margin-right: 10px;">Xem</button></td>
+
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>PH01</td>
+            <td>Kho1</td>
+            <td>Nguyễn Văn A</td>
+            <td>Ô tô</td>
+            <td>12-05-2002</td>
+            <td></td>
+            <td><button type="button" style="margin-right: 10px;">Xem</button></td>
+
+
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>PH01</td>
+            <td>Kho1</td>
+            <td>Nguyễn Văn A</td>
+            <td>Ô tô</td>
+            <td>12-05-2002</td>
+            <td></td>
+            <td><button type="button" style="margin-right: 10px;">Xem</button></td>
+
+
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>PH01</td>
+            <td>Kho1</td>
+            <td>Nguyễn Văn A</td>
+            <td>Ô tô</td>
+            <td>12-05-2002</td>
+            <td></td>
+            <td><button type="button" style="margin-right: 10px;">Xem</button></td>
+
+
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main><!-- End #main -->
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer" style="text-align: center;padding: 10px 0px;border-top: 1px solid;">
+    <div class="copyright">
+      &copy; Copyright <strong><span>Mien Bac Transport</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+      Designed by <a href="https://bootstrapmade.com/">Mien Bac Transport</a>
+    </div>
+  </footer><!-- End Footer -->
+  <script language="javascript" src="assets/js/template.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
